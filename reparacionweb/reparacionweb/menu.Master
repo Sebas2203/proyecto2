@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="menu.master.cs" Inherits="reparacionweb.menu" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="usuarios.aspx">Usuarios</a></li>
+                    <li><a href="tecnicos.aspx">Tecnicos</a></li>
+                    <li><a href="equipos.aspx">Equipos</a></li>
+                    <li><a href="estudiante.aspx">Estudiante</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
