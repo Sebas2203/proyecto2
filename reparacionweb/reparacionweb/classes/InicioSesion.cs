@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Claims;
 using System.Web;
 
 namespace reparacionweb.classes
@@ -20,7 +23,7 @@ namespace reparacionweb.classes
             Correo = correo;
             Nombre = nombre;
         }
-        
+
         //getter = mostrar los atributos (funcion -return)
         //setter = asignar valores a los atributos (procedimientos -void)
 
@@ -52,6 +55,54 @@ namespace reparacionweb.classes
         public static void SetNombre(string nombre)
         {
             Nombre = nombre;
+        }
+
+        public static int ValidarLogin()
+        {
+            int retorno = 0;
+            //int tipo = 0;
+            SqlConnection Conn = new SqlConnection();
+            try
+            {
+                using (Conn = DBconn.obtenerConexion())
+                {
+                    SqlCommand cmd = new SqlCommand("validar", Conn)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    cmd.Parameters.Add(new SqlParameter("@correo", Correo));
+                    cmd.Parameters.Add(new SqlParameter("@clave", Clave));
+
+                    retorno = cmd.ExecuteNonQuery();
+                    using (SqlDataReader lectura = cmd.ExecuteReader())
+                    {
+                        if (lectura.Read())
+                        {
+                            retorno = 1;
+                            Nombre = lectura.GetString(2);
+
+                        }
+                        else
+                        {
+                            retorno = -1;
+                        }
+
+                    }
+
+
+                }
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                retorno = -1;
+            }
+            finally
+            {
+                Conn.Close();
+                Conn.Dispose();
+            }
+
+            return retorno;
         }
     }
 }

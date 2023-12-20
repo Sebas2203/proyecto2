@@ -14,7 +14,7 @@
             <asp:TextBox ID="tusuario" runat="server" placeholder="Ingresa tu usuario" name="username"></asp:TextBox>
 
             <label for="password"><b>Contraseña</b></label>
-            <asp:TextBox ID="tpassword" runat="server" placeholder="Ingresa tu contraseña" name="password" TextMode="Password"></asp:TextBox>
+            <asp:TextBox ID="tclave" runat="server" placeholder="Ingresa tu contraseña" name="password" TextMode="Password"></asp:TextBox>
 
             <asp:Button ID="btnlogin" runat="server" Text="Login" name="button" class="button" OnClick="btnlogin_Click" />
         </div>

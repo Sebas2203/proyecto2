@@ -16,6 +16,7 @@
         <div>
             <div class="container text-center">
                 <h1>SEBASTIAN MORA RODRÍGUEZ</h1>
+                <asp:Label ID="lusuario" runat="server" Text="Label"></asp:Label>
             </div>
         </div>
     </div>

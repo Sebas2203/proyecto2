@@ -1,4 +1,5 @@
-﻿using System;
+﻿using reparacionweb.classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +12,8 @@ namespace reparacionweb
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //mostrar el nombre de la persona que ingresó
+            lusuario.Text = InicioSesion.GetNombre();
         }
     }
 }

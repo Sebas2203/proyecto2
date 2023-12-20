@@ -12,6 +12,7 @@ CREATE TABLE usuarios
 	id INT IDENTITY(1,1),
 	nombre VARCHAR(50) NOT NULL,
 	correo VARCHAR(50) NOT NULL,
+	clave VARCHAR(50) NOT NULL,
 	telefono INT DEFAULT 0
 
 	CONSTRAINT pk_idUsuarios PRIMARY KEY (id)
@@ -86,15 +87,18 @@ GO
 ----------mantenimiento de tablas----------
 
 --agregar usuarios 
-CREATE PROCEDURE agregarUsuario
+alter PROCEDURE agregarUsuario
 	@nombre VARCHAR(50),
 	@correo VARCHAR(50),
+	@clave VARCHAR(50),
 	@telefono INT = 0
 AS 
 BEGIN
-	INSERT INTO usuarios (nombre, correo, telefono) VALUES (@nombre, @correo, @telefono)
+	INSERT INTO usuarios (nombre, correo, clave, telefono) VALUES (@nombre, @correo, @clave, @telefono)
 END;
 GO
+
+exec agregarUsuario 'Sebatian','sebas@gmail.com','sebas','123'
 
 --consultar usuarios 
 CREATE PROCEDURE consultarUsuario
@@ -221,3 +225,13 @@ BEGIN
 	DELETE equipos WHERE id = @id
 END
 GO
+
+
+--LOGIN--
+CREATE PROCEDURE validar
+	@correo VARCHAR(50),
+	@clave VARCHAR(50)
+AS
+BEGIN
+	SELECT nombre, correo FROM usuarios WHERE @clave = @clave AND correo = @correo
+END

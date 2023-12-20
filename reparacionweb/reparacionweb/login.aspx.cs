@@ -17,10 +17,13 @@ namespace reparacionweb
 
         protected void btnlogin_Click(object sender, EventArgs e)
         {
-            InicioSesion.SetNombre("Sebas");
-            Response.Redirect("inicio.aspx");
+            InicioSesion.SetCorreo(tusuario.Text);
+            InicioSesion.SetCorreo(tclave.Text);
+
+            if (InicioSesion.ValidarLogin() > 0)
+            {
+                Response.Redirect("inicio.aspx");
+            }
         }
     }
 }
-
-//1:45:20
