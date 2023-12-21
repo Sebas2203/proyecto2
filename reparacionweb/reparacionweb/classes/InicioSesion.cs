@@ -79,7 +79,7 @@ namespace reparacionweb.classes
                         if (lectura.Read())
                         {
                             retorno = 1;
-                            Nombre = lectura.GetString(2);
+                            Nombre = lectura.GetString(0);
 
                         }
                         else

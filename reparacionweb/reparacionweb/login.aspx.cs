@@ -18,7 +18,7 @@ namespace reparacionweb
         protected void btnlogin_Click(object sender, EventArgs e)
         {
             InicioSesion.SetCorreo(tusuario.Text);
-            InicioSesion.SetCorreo(tclave.Text);
+            InicioSesion.SetClave(tclave.Text);
 
             if (InicioSesion.ValidarLogin() > 0)
             {
