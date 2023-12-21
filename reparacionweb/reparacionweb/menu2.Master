@@ -18,6 +18,7 @@
                 <a href="usuarios.aspx">Usuarios</a>
                 <a href="tecnicos.aspx">Tecnicos</a>
                 <a href="equipos.aspx">Equipos</a>
+                <a href="tareas.aspx">Tareas</a>
                 <a href="estudiante.aspx">Estudiante</a>
                 <a href="inicio.aspx">Atrás</a>
                 <div class="animation start-home"></div>

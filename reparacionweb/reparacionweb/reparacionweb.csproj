@@ -67,6 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="asignaciones.aspx" />
+    <Content Include="detalles.aspx" />
+    <Content Include="tareas.aspx" />
     <Content Include="css\gridview.css" />
     <Content Include="css\login.css" />
     <Content Include="css\style.css" />
@@ -79,8 +82,30 @@
     <Content Include="usuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="login.aspx" />
+    <Content Include="reparaciones.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="asignaciones.aspx.cs">
+      <DependentUpon>asignaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="asignaciones.aspx.designer.cs">
+      <DependentUpon>asignaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="detalles.aspx.cs">
+      <DependentUpon>detalles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="detalles.aspx.designer.cs">
+      <DependentUpon>detalles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="tareas.aspx.cs">
+      <DependentUpon>tareas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="tareas.aspx.designer.cs">
+      <DependentUpon>tareas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="classes\DBconn.cs" />
     <Compile Include="classes\Equipos.cs" />
     <Compile Include="classes\InicioSesion.cs" />
@@ -142,6 +167,13 @@
     </Compile>
     <Compile Include="login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reparaciones.aspx.cs">
+      <DependentUpon>reparaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reparaciones.aspx.designer.cs">
+      <DependentUpon>reparaciones.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
