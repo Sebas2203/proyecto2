@@ -233,5 +233,53 @@ CREATE PROCEDURE validar
 	@clave VARCHAR(50)
 AS
 BEGIN
-	SELECT nombre, correo FROM usuarios WHERE @clave = @clave AND correo = @correo
+	SELECT nombre, correo FROM usuarios WHERE clave = @clave AND correo = @correo
 END
+
+--Nombre Usuario. Estado de Reparacion, Tecnico, Detalle
+Select U.nombre, R.estado, T.nombre, D.descripcion
+fROM usuarios U
+Inner Join equipos E ON U.id = E.id
+Inner Join reparaciones R ON R.id = E.id
+inner Join asignaciones A ON R.id = A.id
+inner Join tecnicos T ON T.id = A.id
+inner Join detallesReparacion D ON D.id= R.id
+
+
+
+
+
+
+
+
+--procesos almacenados de las ultimas 3 tablas
+
+--APREGAR REPARACION
+CREATE PROCEDURE agregarReparacion
+	@idEquipo INT,
+	@fechaSolicitud DATETIME,
+	@estado VARCHAR(50)
+
+AS
+BEGIN
+	INSERT INTO reparaciones(idEquipo,fechaSolicitud, estado) VALUES (@idEquipo, @fechaSolicitud, @estado)
+END
+GO
+
+--MODIFICAR REPARACION
+CREATE PROCEDURE modificarReparacion
+	@id INT,
+	@idEquipo INT,
+	@fechaSolicitud DATETIME,
+	@estado VARCHAR(50)
+AS
+BEGIN
+	UPDATE reparaciones
+	SET idEquipo = @idEquipo,
+		fechaSolicitud = @fechaSolicitud,
+		estado = @estado
+		WHERE id = @id
+END
+GO
+
+

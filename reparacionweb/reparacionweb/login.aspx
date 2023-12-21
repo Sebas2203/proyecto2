@@ -11,7 +11,7 @@
     <form id="loginForm" runat="server" method="post">
         <div class="container">
             <label for="usuario"><b>Usuario</b></label>
-            <asp:TextBox ID="tusuario" runat="server" placeholder="Ingresa tu usuario" name="username"></asp:TextBox>
+            <asp:TextBox ID="tusuario" runat="server" placeholder="Ingresa tu correo" name="username"></asp:TextBox>
 
             <label for="password"><b>Contraseña</b></label>
             <asp:TextBox ID="tclave" runat="server" placeholder="Ingresa tu contraseña" name="password" TextMode="Password"></asp:TextBox>
