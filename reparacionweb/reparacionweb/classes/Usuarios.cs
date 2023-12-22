@@ -91,7 +91,7 @@ namespace reparacionweb.classes
             {
                 using (Conn = DBconn.obtenerConexion())
                 {
-                    SqlCommand cmd = new SqlCommand("modificarUsuario", Conn)
+                    SqlCommand cmd = new SqlCommand("modificarUsuarios", Conn)
                     {
                         CommandType = System.Data.CommandType.StoredProcedure
                     };

@@ -87,7 +87,7 @@ GO
 ----------mantenimiento de tablas----------
 
 --agregar usuarios 
-alter PROCEDURE agregarUsuario
+CREATE PROCEDURE agregarUsuario
 	@nombre VARCHAR(50),
 	@correo VARCHAR(50),
 	@clave VARCHAR(50),
@@ -97,8 +97,6 @@ BEGIN
 	INSERT INTO usuarios (nombre, correo, clave, telefono) VALUES (@nombre, @correo, @clave, @telefono)
 END;
 GO
-
-exec agregarUsuario 'Sebatian','sebas@gmail.com','sebas','123'
 
 --consultar usuarios 
 CREATE PROCEDURE consultarUsuario
@@ -227,30 +225,7 @@ END
 GO
 
 
---LOGIN--
-CREATE PROCEDURE validar
-	@correo VARCHAR(50),
-	@clave VARCHAR(50)
-AS
-BEGIN
-	SELECT nombre, correo FROM usuarios WHERE clave = @clave AND correo = @correo
-END
-
---Nombre Usuario. Estado de Reparacion, Tecnico, Detalle
-Select U.nombre, R.estado, T.nombre, D.descripcion
-fROM usuarios U
-Inner Join equipos E ON U.id = E.id
-Inner Join reparaciones R ON R.id = E.id
-inner Join asignaciones A ON R.id = A.id
-inner Join tecnicos T ON T.id = A.id
-inner Join detallesReparacion D ON D.id= R.id
-
-
-
-
-
-
-
+----------------------------------------------------------------------------------------
 
 --procesos almacenados de las ultimas 3 tablas
 
@@ -281,5 +256,91 @@ BEGIN
 		WHERE id = @id
 END
 GO
+----------------------------------------------------------------------------------------
+
+--AGREGAR ASIGNACIONES
+CREATE PROCEDURE agregarAsignaciones
+	@idReparacion INT,
+	@fechaAsignacion DATETIME,
+	@idTecnico INT
+
+AS
+BEGIN
+	INSERT INTO asignaciones(idReparacionesAsignaciones,fechaAsignacion, idTecnicos) VALUES (@idReparacion, @fechaAsignacion, @idTecnico);
+END
+GO
+
+--MODIFICAR ASIGNACIONES
+CREATE PROCEDURE modificarAsignaciones
+	@id INT,
+	@idReparacion INT,
+	@fechaAsignacion DATETIME,
+	@idTecnico INT
+
+AS
+BEGIN
+	UPDATE asignaciones
+	SET idReparacionesAsignaciones = @idReparacion,
+		fechaAsignacion = @fechaAsignacion,
+		idTecnicos = @idTecnico
+		WHERE id = @id
+END
+GO
+----------------------------------------------------------------------------------------
+
+--AGREGAR DETALLES REPARACION
+CREATE PROCEDURE agregarDetallesReparacion
+	@idReparacion INT,
+	@fechaInicio DATETIME,
+	@fechaFin DATETIME,
+	@descripcion VARCHAR(50)
+
+AS
+BEGIN
+	INSERT INTO detallesReparacion (idReparaciones,fechaInicio, fechaFin, descripcion) VALUES (@idReparacion, @fechaInicio, @fechaFin, @descripcion);
+END
+GO
+
+--MODIFICAR DETALLES REPARACION
+CREATE PROCEDURE modificarDetallesReparacion
+	@id INT,
+	@idReparacion INT,
+	@fechaInicio DATETIME,
+	@fechaFin DATETIME,
+	@descripcion VARCHAR(50)
+AS
+BEGIN
+	UPDATE detallesReparacion
+	SET idReparaciones = @idReparacion,
+		fechaInicio = @fechaInicio,
+		fechaFin = @fechaFin,
+		descripcion = @descripcion
+		WHERE id = @id
+END
+GO
+
+----------------------------------------------------------------------------------------
+
+--LOGIN--
+CREATE PROCEDURE validar
+	@correo VARCHAR(50),
+	@clave VARCHAR(50)
+AS
+BEGIN
+	SELECT nombre, correo FROM usuarios WHERE clave = @clave AND correo = @correo
+END
+GO
+
+--Nombre Usuario. Estado de Reparacion, Tecnico, Detalle
+Select U.nombre, R.estado, T.nombre, D.descripcion
+fROM usuarios U
+Inner Join equipos E ON U.id = E.id
+Inner Join reparaciones R ON R.id = E.id
+inner Join asignaciones A ON R.id = A.id
+inner Join tecnicos T ON T.id = A.id
+inner Join detallesReparacion D ON D.id= R.id
+GO
 
 
+exec agregarUsuario 'Sebatian','sebas@gmail.com','sebas','123'
+exec agregarUsuario 'Karla','karla@gmail.com','karla','321'

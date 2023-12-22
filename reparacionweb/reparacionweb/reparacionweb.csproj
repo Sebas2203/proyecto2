@@ -92,6 +92,9 @@
     <Compile Include="asignaciones.aspx.designer.cs">
       <DependentUpon>asignaciones.aspx</DependentUpon>
     </Compile>
+    <Compile Include="classes\Asignaciones.cs" />
+    <Compile Include="classes\Detalles.cs" />
+    <Compile Include="classes\Reparaciones.cs" />
     <Compile Include="detalles.aspx.cs">
       <DependentUpon>detalles.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
