@@ -55,7 +55,7 @@
             <asp:DropDownList ID="tidTecnicos" class="form-control" runat="server"></asp:DropDownList>
 
             Fecha Asignacion:
-            <asp:TextBox ID="tfechaAsignacion" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tfechaAsignacion" class="form-control" runat="server" Type="Date" ></asp:TextBox>
 
 
             <br />

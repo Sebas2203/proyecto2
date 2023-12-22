@@ -52,10 +52,10 @@
             <asp:DropDownList ID="tidReparacion" class="form-control" runat="server"></asp:DropDownList>
 
             Fecha Inicio:
-            <asp:TextBox ID="tfechaInicio" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tfechaInicio" class="form-control" runat="server" Type="Date"></asp:TextBox>
 
             Fecha Fin:
-            <asp:TextBox ID="tfechaFin" class="form-control" runat="server"></asp:TextBox>
+            <asp:TextBox ID="tfechaFin" class="form-control" runat="server" Type="Date"></asp:TextBox>
 
             Descipcion:
             <asp:TextBox ID="tdescripcion" class="form-control" runat="server"></asp:TextBox>

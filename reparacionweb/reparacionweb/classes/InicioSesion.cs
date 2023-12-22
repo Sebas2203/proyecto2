@@ -15,6 +15,7 @@ namespace reparacionweb.classes
         private static string Clave;
         private static string Correo;
         private static string Nombre;
+        private static string NombreUsuario;
 
         //constructor para inicializar las variavles
         public InicioSesion(string clave, string correo, string nombre)

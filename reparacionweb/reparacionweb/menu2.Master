@@ -19,7 +19,7 @@
                 <a href="tecnicos.aspx">Tecnicos</a>
                 <a href="equipos.aspx">Equipos</a>
                 <a href="tareas.aspx">Tareas</a>
-                <a href="estudiante.aspx">Estudiante</a>
+                <a href="consultar.aspx">Consultar</a>
                 <a href="inicio.aspx">Atrás</a>
                 <div class="animation start-home"></div>
             </nav>

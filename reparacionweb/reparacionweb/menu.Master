@@ -18,7 +18,7 @@
                     <li><a href="tecnicos.aspx">Tecnicos</a></li>
                     <li><a href="equipos.aspx">Equipos</a></li>
                     <li><a href="tareas.aspx">Tareas</a></li>
-                    <li><a href="estudiante.aspx">Estudiante</a></li>
+                    <li><a href="consultar.aspx">Consultar</a></li>
                 </ul>
             </nav>
         </div>

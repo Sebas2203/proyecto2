@@ -330,10 +330,10 @@ BEGIN
 	SELECT nombre, correo FROM usuarios WHERE clave = @clave AND correo = @correo
 END
 GO
-
+----------------------------------------------------------------------------------------
 --Nombre Usuario. Estado de Reparacion, Tecnico, Detalle
 Select U.nombre, R.estado, T.nombre, D.descripcion
-fROM usuarios U
+FROM usuarios U
 Inner Join equipos E ON U.id = E.id
 Inner Join reparaciones R ON R.id = E.id
 inner Join asignaciones A ON R.id = A.id
@@ -341,6 +341,19 @@ inner Join tecnicos T ON T.id = A.id
 inner Join detallesReparacion D ON D.id= R.id
 GO
 
+CREATE PROCEDURE consultar
+AS
+BEGIN
+	Select U.nombre, R.estado, T.nombre, D.descripcion
+	FROM usuarios U
+	Inner Join equipos E ON U.id = E.id
+	Inner Join reparaciones R ON R.id = E.id
+	inner Join asignaciones A ON R.id = A.id
+	inner Join tecnicos T ON T.id = A.id
+	inner Join detallesReparacion D ON D.id= R.id
+END
+GO
+----------------------------------------------------------------------------------------
 
 exec agregarUsuario 'Sebatian','sebas@gmail.com','sebas','123'
 exec agregarUsuario 'Karla','karla@gmail.com','karla','321'

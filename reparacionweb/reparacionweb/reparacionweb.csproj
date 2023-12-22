@@ -76,7 +76,7 @@
     <Content Include="css\style2.css" />
     <Content Include="database\reparcionpc.sql" />
     <Content Include="equipos.aspx" />
-    <Content Include="estudiante.aspx" />
+    <Content Include="consultar.aspx" />
     <Content Include="inicio.aspx" />
     <Content Include="tecnicos.aspx" />
     <Content Include="usuarios.aspx" />
@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="classes\Asignaciones.cs" />
     <Compile Include="classes\Detalles.cs" />
+    <Compile Include="classes\InnerJoin.cs" />
     <Compile Include="classes\Reparaciones.cs" />
     <Compile Include="detalles.aspx.cs">
       <DependentUpon>detalles.aspx</DependentUpon>
@@ -121,12 +122,12 @@
     <Compile Include="equipos.aspx.designer.cs">
       <DependentUpon>equipos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="estudiante.aspx.cs">
-      <DependentUpon>estudiante.aspx</DependentUpon>
+    <Compile Include="consultar.aspx.cs">
+      <DependentUpon>consultar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="estudiante.aspx.designer.cs">
-      <DependentUpon>estudiante.aspx</DependentUpon>
+    <Compile Include="consultar.aspx.designer.cs">
+      <DependentUpon>consultar.aspx</DependentUpon>
     </Compile>
     <Compile Include="inicio.aspx.cs">
       <DependentUpon>inicio.aspx</DependentUpon>
