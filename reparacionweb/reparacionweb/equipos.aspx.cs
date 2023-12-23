@@ -84,7 +84,7 @@ namespace reparacionweb
 
         protected void button1_Click(object sender, EventArgs e)
         {
-            if (classes.Equipos.Agregar(int.Parse(tidUsuario.SelectedValue), ttipoEquipo.Text, tmodelo.Text) != 0)
+            if (classes.Equipos.Agregar(int.Parse(tidUsuario.SelectedValue), ttipoEquipo.Text, tmodelo.Text) > 0)
             {
                 LlenarGrid();
                 alertas("Equipo ingresado con exito");

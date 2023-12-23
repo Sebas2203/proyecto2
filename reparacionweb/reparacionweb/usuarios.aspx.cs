@@ -84,7 +84,7 @@ namespace reparacionweb
 
         protected void button3_Click(object sender, EventArgs e)
         {
-            if (classes.Usuarios.Modificar(int.Parse(tid.Text), tnombre.Text, tcorreo.Text, int.Parse(ttelefono.Text)) != 0)
+            if (classes.Usuarios.Modificar(int.Parse(tid.Text), tnombre.Text, tcorreo.Text, int.Parse(ttelefono.Text)) > 0)
             {
                 LlenarGrid();
                 alertas("Usuario modificado con exito");

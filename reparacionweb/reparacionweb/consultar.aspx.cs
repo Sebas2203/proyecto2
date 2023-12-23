@@ -25,41 +25,12 @@ namespace reparacionweb
             }
         }
 
-        //protected void LlenarGrid1()
-        //{
-        //    string rol = classes.Tecnicos.;
-        //    int idtec = 3;
-        //    string constr = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
-        //    using (SqlConnection con = new SqlConnection(constr))
-        //    {
-        //        SqlCommand cmd = new SqlCommand("consultar", con)
-        //        {
-        //            CommandType = CommandType.StoredProcedure
-        //        };
-        //        cmd.Parameters.Add(new SqlParameter("@ROl", rol));
-        //        cmd.Parameters.Add(new SqlParameter("@IDTEC", idtec));
-
-        //        using (SqlDataAdapter sda = new SqlDataAdapter())
-        //        {
-        //            cmd.Connection = con;
-        //            sda.SelectCommand = cmd;
-        //            using (DataTable dt = new DataTable())
-        //            {
-        //                sda.Fill(dt);
-        //                datagrid.DataSource = dt;
-        //                datagrid.DataBind();  // Refrescar los datos
-        //            }
-        //        }
-        //    }
-        //}
-
-
         protected void LlenarGrid()
         {
             string constr = ConfigurationManager.ConnectionStrings["Conexion"].ConnectionString;
             using (SqlConnection con = new SqlConnection(constr))
             {
-                using (SqlCommand cmd = new SqlCommand("consultar"))
+                using (SqlCommand cmd = new SqlCommand("ConsultarUsuariosConDetallesReparacion"))
                 {
                     using (SqlDataAdapter sda = new SqlDataAdapter())
                     {
