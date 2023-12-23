@@ -224,7 +224,8 @@ BEGIN
 END
 GO
 
-
+----------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------
 
 --procesos almacenados de las ultimas 3 tablas
@@ -341,16 +342,16 @@ inner Join tecnicos T ON T.id = A.id
 inner Join detallesReparacion D ON D.id= R.id
 GO
 
-CREATE PROCEDURE consultar
+CREATE PROCEDURE ConsultarUsuariosConDetallesReparacion
 AS
 BEGIN
-	Select U.nombre, R.estado, T.nombre, D.descripcion
-	FROM usuarios U
-	Inner Join equipos E ON U.id = E.id
-	Inner Join reparaciones R ON R.id = E.id
-	inner Join asignaciones A ON R.id = A.id
-	inner Join tecnicos T ON T.id = A.id
-	inner Join detallesReparacion D ON D.id= R.id
+    SELECT U.nombre AS 'Nombre Usuario', R.estado AS 'Estado de Reparacion', T.nombre AS 'Tecnico', D.descripcion AS 'Detalle'
+    FROM usuarios U
+    INNER JOIN equipos E ON U.id = E.idUsuarios
+    INNER JOIN reparaciones R ON R.idEquipo = E.id
+    INNER JOIN asignaciones A ON R.id = A.idReparacionesAsignaciones
+    INNER JOIN tecnicos T ON T.id = A.idTecnicos
+    INNER JOIN detallesReparacion D ON D.idReparaciones = R.id;
 END
 GO
 ----------------------------------------------------------------------------------------

@@ -21,7 +21,6 @@ namespace reparacionweb
             if (IsPostBack)
             {
                 LlenarGrid();
-                //LlenarGrid1();
             }
         }
 
