@@ -14,7 +14,19 @@ namespace reparacionweb
         {
            
         }
+        public void alertas(String texto)
+        {
+            string message = texto;
+            System.Text.StringBuilder sb = new System.Text.StringBuilder();
+            sb.Append("<script type = 'text/javascript'>");
+            sb.Append("window.onload=function(){");
+            sb.Append("alert('");
+            sb.Append(message);
+            sb.Append("')};");
+            sb.Append("</script>");
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
 
+        }
         protected void btnlogin_Click(object sender, EventArgs e)
         {
             InicioSesion.SetCorreo(tusuario.Text);
@@ -23,6 +35,10 @@ namespace reparacionweb
             if (InicioSesion.ValidarLogin() > 0)
             {
                 Response.Redirect("inicio.aspx");
+            }
+            else
+            {
+                alertas("Usuario Incorrecto");
             }
         }
     }
